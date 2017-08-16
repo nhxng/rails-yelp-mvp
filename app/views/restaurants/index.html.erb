@@ -1,12 +1,15 @@
-<h2>Restaurants</h2>
-<p> <%= link_to "New Restaurant", new_restaurant_path  %></p>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-  <li>
-    <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h3>
-    <p> Address: <%= restaurant.address %></p>
-    <p> Phone Number: <%= restaurant.phone_number %></p>
-    <p> Category: <%= restaurant.category %></p>
-  </li>
-  <% end %>
-</ul>
+<div class="restaurant list-restaurant">
+  <h2>All Restaurants</h2>
+  <ol class="list-unstyled">
+    <% @restaurants.each do |restaurant| %>
+    <li>
+      <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h3>
+      <p> Address: <%= restaurant.address %></p>
+      <p> Phone Number: <%= restaurant.phone_number %></p>
+      <p> Category: <%= restaurant.category %></p>
+      <p> Average Rating: <%= restaurant.average_rating(restaurant.reviews) %></p>
+    </li>
+    <% end %>
+  </ol>
+
+</div>

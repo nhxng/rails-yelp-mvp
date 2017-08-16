@@ -5,5 +5,17 @@ class Restaurant < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES,
     message: "%{value} is not a valid category" }
   validates_associated :reviews
+
+  def average_rating(reviews)
+    ratings = []
+    reviews.each do |review|
+      ratings << review.rating
+    end
+    if ratings.empty?
+      "no ratings yet"
+    else
+      average = (ratings.reduce(:+) / ratings.length)
+    end
+  end
 end
 

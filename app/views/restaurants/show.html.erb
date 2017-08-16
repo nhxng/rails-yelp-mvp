@@ -1,13 +1,24 @@
-<h3><%= @restaurant.name %></h3>
-<p> Address: <%= @restaurant.address %></p>
-<p> Phone Number: <%= @restaurant.phone_number %></p>
-<p> Category: <%= @restaurant.category %></p>
-<%= link_to "Back", restaurants_path  %>
+<div class="restaurant show-restaurant">
+  <h3><%= @restaurant.name %></h3>
+  <p> Address: <%= @restaurant.address %></p>
+  <p> Phone Number: <%= @restaurant.phone_number %></p>
+  <p> Category: <%= @restaurant.category %></p>
+  <p> Average Rating: </p>
 
-<h3>reviews</h3>
-<% @restaurant.reviews.each do |review| %>
-  <p> Review: <%= review.content %></p>
-  <p> Rating: <%= review.rating %></p>
-<% end %>
+  <p><%= link_to "Back", restaurants_path  %></p>
 
-<%= link_to "Add review", new_restaurant_review_path(@restaurant)  %>
+  <h3>reviews</h3>
+  <div class="reviews">
+
+    <% @restaurant.reviews.each do |review| %>
+      <div class="reviews-card">
+        <p> User<%= (1..100).to_a.sample  %>: <%= review.content %></p>
+        <p> Rating: <%= review.rating %></p>
+       </div>
+    <% end %>
+  </div>
+
+  <%= render 'reviews/form' %>
+
+</div>
+

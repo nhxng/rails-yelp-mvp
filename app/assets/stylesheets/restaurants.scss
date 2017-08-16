@@ -1,0 +1,20 @@
+.restaurant {
+  margin: 40px;
+  h2 {
+    font-size: 21px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+.reviews {
+  display: flex;
+}
+
+.reviews-card {
+  width: 600px;
+}
